@@ -114,7 +114,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/seba9989/.dotfiles";
+    flake = "/home/seba9989/.config/NixOS-Config/";
   };
 
   # Allow unfree packages
@@ -130,6 +130,7 @@
     kitty
     rofi
     git
+    gh
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
