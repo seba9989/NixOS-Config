@@ -1,0 +1,22 @@
+    {
+        
+        "nix.serverPath": "nixd",
+        "nix.enableLanguageServer": true,
+        "nix.serverSettings": {
+            "nixd": {
+                "formatting": {
+                    "command": [
+                        "alejandra"
+                    ],
+                },
+                "options": {
+                   "nixos": {
+                     "expr": "(builtins.getFlake \"/home/seba9989/.dotfile\").nixosConfigurations.nixos.options"
+                   },
+                //    "home_manager": {
+                //      "expr": "(builtins.getFlake \"/PATH/TO/FLAKE\").homeConfigurations.CONFIGNAME.options"
+                //    },
+                },
+            }
+        }
+    }
