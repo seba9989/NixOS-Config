@@ -11,8 +11,15 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
   ];
+
+  home-manager = {
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      seba9989 = import ./home.nix;
+    };
+  };
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -54,10 +61,6 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-  };
 
   # Configure keymap in X11
   services.xserver.xkb = {

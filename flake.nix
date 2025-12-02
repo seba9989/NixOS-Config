@@ -29,7 +29,6 @@
           environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
         }
         ./configuration.nix
-        inputs.home-manager.nixosModules.default
       ];
     };
   };
