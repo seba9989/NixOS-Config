@@ -28,7 +28,24 @@
         {
           environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
         }
-        ./configuration.nix
+        ./hosts/laptop/configuration.nix
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            extraSpecialArgs = {inherit inputs;};
+            users = {
+              seba9989 = import ./users/seba9989/home.nix;
+            };
+          };
+        }
+      ];
+    };
+
+    homeConfigurations."seba9989@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      extraSpecialArgs = {inherit inputs;};
+      modules = [
+        ./users/seba9989/home.nix
       ];
     };
   };

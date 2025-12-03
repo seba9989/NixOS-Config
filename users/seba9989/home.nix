@@ -3,14 +3,41 @@
   pkgs,
   ...
 }: {
-
   home.username = "seba9989";
   home.homeDirectory = "/home/seba9989";
 
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
+  imports = [
+    ../../home-managerModules/index.nix
+  ];
+
+  monitors = [
+    {
+      name = "Virtual-1";
+      width = 1920;
+      height = 1200;
+      refreshRate = 60;
+      x = 0;
+      y = 0;
+      scale = 1;
+      enable = true;
+    }
+  ];
+
+  hyprland.enable = true;
+
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   settings = {
+  #     # Monitors
+  #     monitor = "Virtual-1, 1920x1200@60, 0x0, 1";
+  #   };
+  # };
+
+  # programs.hyprland.enable = true;
+
   home.packages = with pkgs; [
-  
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -28,7 +55,6 @@
     # '';
   };
 
- 
   home.sessionVariables = {
     # EDITOR = "emacs";
   };

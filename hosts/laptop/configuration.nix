@@ -11,15 +11,11 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.home-manager
+    ../../nixosModules/index.nix
   ];
 
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      seba9989 = import ./home.nix;
-    };
-  };
+  # Desktop
+  hyprland.enable = true;
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -99,8 +95,6 @@
     description = "Seba9989";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      kdePackages.kate
-      jujutsu
       #  thunderbird
     ];
 
@@ -134,6 +128,7 @@
     rofi
     git
     gh
+    jujutsu
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
