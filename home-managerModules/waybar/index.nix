@@ -19,10 +19,10 @@
 
     programs.waybar = {
       enable = true;
-      style = builtins.concatStringsSep "\n" [
+      style = lib.mkAfter (builtins.concatStringsSep "\n" [
         (builtins.readFile ./mocha.css)
         (builtins.readFile ./style.css)
-      ];
+      ]);
       settings = {
         mainBar = {
           position = "top";
