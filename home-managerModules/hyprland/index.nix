@@ -14,6 +14,8 @@
   };
 
   config = lib.mkIf config.hyprland.enable {
+    waybar.enable = lib.mkDefault true;
+
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {

@@ -1,7 +1,5 @@
 {
-  pkgs,
   lib,
-  config,
   ...
 }: {
   options.monitors = lib.mkOption {
