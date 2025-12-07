@@ -14,6 +14,8 @@
     ../../nixosModules/index.nix
   ];
 
+  programs.steam.enable = true;
+
   # Desktop
   hyprland.enable = true;
 
