@@ -16,6 +16,7 @@
     home.packages = [
       pkgs.nerd-fonts.fira-code
     ];
+
     programs.waybar = {
       enable = true;
       style = builtins.concatStringsSep "\n" [
