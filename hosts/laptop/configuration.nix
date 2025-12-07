@@ -96,9 +96,6 @@
     isNormalUser = true;
     description = "Seba9989";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
 
     shell = pkgs.fish;
   };
