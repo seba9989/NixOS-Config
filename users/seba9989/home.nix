@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.username = "seba9989";
   home.homeDirectory = "/home/seba9989";
 
@@ -27,17 +23,10 @@
 
   hyprland.enable = true;
 
-  # wayland.windowManager.hyprland = {
-  #   enable = true;
-  #   settings = {
-  #     # Monitors
-  #     monitor = "Virtual-1, 1920x1200@60, 0x0, 1";
-  #   };
-  # };
-
-  # programs.hyprland.enable = true;
-
   home.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.meslo-lg
+    nerd-fonts.jetbrains-mono
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
