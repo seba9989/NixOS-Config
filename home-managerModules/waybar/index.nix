@@ -4,12 +4,20 @@
   ...
 }: {
   options.waybar = {
-    enable = lib.mkEnableOption "Hyprland config enable";
+    enable = lib.mkEnableOption "Waybar config enable";
+    autostart = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config = lib.mkIf config.waybar.enable {
     programs.waybar = {
       enable = true;
+      style = builtins.concatStringsSep "\n" [
+        (builtins.readFile ./mocha.css)
+        (builtins.readFile ./style.css)
+      ];
       settings = {
         mainBar = {
           position = "top";
@@ -23,7 +31,6 @@
             "battery"
             "clock"
             "custom/power"
-            "custom/pacman"
           ];
 
           tray = {
@@ -55,7 +62,7 @@
           memory = {
             interval = 30;
             format = "  {used:0.2f} / {total:0.0f} GB";
-            on-click = "alacritty -e btop";
+            on-click = "${config.systemApps.terminal} -e btop";
           };
 
           pulseaudio = {
@@ -71,17 +78,6 @@
             format = " 󰐥 ";
             tooltip = false;
             on-click = "wlogout";
-          };
-
-          "custom/pacman" = {
-            format = "<big>􏆲</big>  {}";
-            interval = 3600;
-            exec = "checkupdates | wc -l";
-            exec-if = "exit 0";
-            on-click = ''alacritty -e "paru"; pkill -SIGRTMIN+8 waybar'';
-            signal = 8;
-            "max-length" = 5;
-            "min-length" = 3;
           };
         };
       };

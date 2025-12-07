@@ -19,6 +19,9 @@
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
+        # Autostart
+        exec-once = "waybar";
+
         # Monitors
         monitor = map (
           m: let
