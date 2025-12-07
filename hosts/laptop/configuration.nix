@@ -11,8 +11,11 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
+    ../../nixosModules/index.nix
   ];
+
+  # Desktop
+  hyprland.enable = true;
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -55,10 +58,6 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  programs.hyprland = {
-    enable = true;
-  };
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "pl";
@@ -96,8 +95,6 @@
     description = "Seba9989";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      kdePackages.kate
-      jujutsu
       #  thunderbird
     ];
 
@@ -131,6 +128,7 @@
     rofi
     git
     gh
+    jujutsu
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
