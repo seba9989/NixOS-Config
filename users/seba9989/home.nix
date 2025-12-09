@@ -36,6 +36,14 @@
     nerd-fonts.fira-code
     nerd-fonts.meslo-lg
     nerd-fonts.jetbrains-mono
+
+    vscode
+    nixd
+    kitty
+    rofi
+    git
+    gh
+    jujutsu
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
