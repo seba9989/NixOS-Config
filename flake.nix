@@ -40,7 +40,7 @@
           environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
         }
         inputs.stylix.nixosModules.stylix
-        ./hosts/desktop/configuration.nix
+        ./hosts/laptop/configuration.nix
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -54,14 +54,6 @@
             backupFileExtension = "backup";
           };
         }
-      ];
-    };
-
-    homeConfigurations."seba9989@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      extraSpecialArgs = {inherit inputs;};
-      modules = [
-        ./users/seba9989/home.nix
       ];
     };
   };

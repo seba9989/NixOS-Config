@@ -4,6 +4,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -12,6 +13,20 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../nixosModules/index.nix
+  ];
+
+  home-manager.extraSpecialArgs = {osConfig = config;};
+  monitors = [
+    {
+      name = "Virtual-1";
+      width = 1920;
+      height = 1200;
+      refreshRate = 60;
+      x = 0;
+      y = 0;
+      scale = 1;
+      enable = true;
+    }
   ];
 
   programs.steam.enable = true;
