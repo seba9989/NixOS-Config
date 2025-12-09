@@ -1,10 +1,14 @@
 {
   lib,
   config,
+  osConfig,
   ...
 }: {
   options.hyprland = {
-    enable = lib.mkEnableOption "Hyprland config enable";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = osConfig.hyprland.enable;
+    };
     mainMod = lib.mkOption {
       type = lib.types.str;
       example = "SUPER";
@@ -31,7 +35,7 @@
             then "${resolution}, ${position}, ${toString m.scale}"
             else "disable"
           }"
-        ) (config.monitors);
+        ) (osConfig.monitors);
 
         # Keybindings
         bind = [

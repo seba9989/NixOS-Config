@@ -9,6 +9,7 @@
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
   imports = [
+    inputs.stylix.homeModules.stylix
     inputs.zen-browser.homeModules.beta
     ../../home-managerModules/index.nix
   ];
@@ -24,32 +25,12 @@
 
   programs.rofi.enable = true;
 
-  stylix.targets.zen-browser.profileNames = ["main"];
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
-  monitors = [
-    {
-      name = "DP-2";
-      width = 1920;
-      height = 1080;
-      refreshRate = 165;
-      x = 1920;
-      y = 0;
-      scale = 1;
-      enable = true;
-    }
-    {
-      name = "HDMI-A-1";
-      width = 1920;
-      height = 1080;
-      refreshRate = 75;
-      x = 0;
-      y = 0;
-      scale = 1;
-      enable = true;
-    }
-  ];
-
-  hyprland.enable = true;
+    targets.zen-browser.profileNames = ["main"];
+  };
 
   home.packages = with pkgs; [
     nerd-fonts.fira-code
