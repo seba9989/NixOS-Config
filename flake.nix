@@ -31,7 +31,7 @@
       modules = [
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
-        ./hosts/laptop/configuration.nix
+        ./hosts/VM/configuration.nix
         ./baseConfiguration.nix
       ];
     };
