@@ -96,7 +96,12 @@
     backupFileExtension = "backup";
   };
 
-  environment.systemPackages = [inputs.alejandra.defaultPackage.x86_64-linux];
+  environment.systemPackages = [
+    pkgs.git
+    pkgs.gh
+    pkgs.jujutsu
+    inputs.alejandra.defaultPackage.x86_64-linux
+  ];
 
   system.stateVersion = "26.05";
 }

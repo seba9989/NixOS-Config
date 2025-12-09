@@ -41,9 +41,9 @@
     nixd
     kitty
     rofi
-    git
-    gh
-    jujutsu
+    # git
+    # gh
+    # jujutsu
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
