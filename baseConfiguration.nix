@@ -9,6 +9,8 @@
     ./nixosModules/index.nix
   ];
 
+  nix.settings.trusted-users = ["root" "seba9989"];
+
   # Enable networking
   networking.networkmanager.enable = lib.mkDefault true;
   # networking.wireless.enable = lib.mkDefault true; # Enables wireless support via wpa_supplicant.
@@ -125,7 +127,18 @@
     pkgs.gh
     pkgs.jujutsu
     inputs.alejandra.defaultPackage.x86_64-linux
+    pkgs.winboat
   ];
+
+  services.udisks2.enable = true; # USB support
+  services.gvfs = {
+    enable = true; # Mount, trash, and other functionalities
+    package = pkgs.gnome.gvfs;
+  };
+
+  services.tailscale.enable = true;
+
+  networking.nameservers = ["100.100.100.100" "1.1.1.2"];
 
   system.stateVersion = "26.05";
 }

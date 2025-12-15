@@ -32,6 +32,7 @@
 
     targets.zen-browser.profileNames = ["main"];
     targets.starship.enable = false;
+    targets.fish.enable = false;
   };
 
   catppuccin = {
@@ -69,6 +70,24 @@
     vesktop
 
     httpie-desktop
+    gitkraken
+    brave
+    faugus-launcher
+    pavucontrol
+    devenv
+    typstyle
+    tinymist
+    opencode
+    uv
+    jetbrains.clion
+    gcc
+    cmake
+    thunderbird
+    bruno
+
+    freecad
+
+    distrobox
   ];
 
   programs.kitty.enable = true;
@@ -99,7 +118,7 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "micro";
   };
 
   # Let Home Manager install and manage itself.

@@ -2,6 +2,7 @@
   lib,
   config,
   osConfig,
+  pkgs,
   ...
 }: {
   options.hyprland = {
@@ -19,11 +20,21 @@
   config = lib.mkIf config.hyprland.enable {
     waybar.enable = lib.mkDefault true;
 
+    home.packages = with pkgs; [
+      swaybg
+      hyprshot
+      hyprpolkitagent
+    ];
+
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
         # Autostart
-        exec-once = "waybar";
+        exec-once = [
+          "waybar"
+          "swaybg -i \"${toString ./wallpaper.jpg}\" -o \"*\" -m fill"
+          "systemctl --user start hyprpolkitagent"
+        ];
 
         # Monitors
         monitor = map (
@@ -86,6 +97,13 @@
           # Scroll workspaces
           "${config.hyprland.mainMod}, mouse_down, workspace, e+1"
           "${config.hyprland.mainMod}, mouse_up, workspace, e-1"
+
+          # Screenshot a window
+          "${config.hyprland.mainMod}, PRINT, exec, hyprshot -m window"
+          # Screenshot a monitor
+          ", PRINT, exec, hyprshot -m output"
+          # Screenshot a region
+          "SHIFT, PRINT, exec, hyprshot -m region"
         ];
 
         bindm = [
