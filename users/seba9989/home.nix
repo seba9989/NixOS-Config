@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   home.username = "seba9989";
@@ -30,7 +31,23 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     targets.zen-browser.profileNames = ["main"];
+    targets.starship.enable = false;
   };
+
+  catppuccin = {
+    enable = true;
+  };
+
+  # gtk = {
+  #   enable = true;
+  #   iconTheme = {
+  #     name = "Papirus-Dark";
+  #     package = pkgs.catppuccin-papirus-folders.override {
+  #       flavor = "mocha";
+  #       accent = "mauve";
+  #     };
+  #   };
+  # };
 
   home.packages = with pkgs; [
     nerd-fonts.fira-code
@@ -38,10 +55,33 @@
     nerd-fonts.jetbrains-mono
 
     vscode
+    nodejs
+    bun
+    podman-desktop
+    podman-compose
+
     nixd
-    kitty
     rofi
+    rofi-power-menu
+
+    nemo-with-extensions
+
+    vesktop
+
+    httpie-desktop
   ];
+
+  programs.kitty.enable = true;
+  programs.starship.enable = true;
+
+  dconf = {
+    settings = {
+      "org/cinnamon/desktop/applications/terminal" = {
+        exec = "kitty";
+        # exec-arg = ""; # argument
+      };
+    };
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

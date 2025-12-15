@@ -79,9 +79,15 @@
 
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+      starship init fish | source
+    '';
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  services.flatpak.enable = true;
 
   home-manager = {
     useGlobalPkgs = true;
@@ -91,9 +97,27 @@
       osConfig = config;
     };
     users = {
-      seba9989 = import ./users/seba9989/home.nix;
+      seba9989 = {
+        imports = [
+          inputs.catppuccin.homeModules.catppuccin
+          ./users/seba9989/home.nix
+        ];
+      };
     };
     backupFileExtension = "backup";
+  };
+
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
 
   environment.systemPackages = [

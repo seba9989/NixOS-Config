@@ -23,6 +23,8 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = {nixpkgs, ...} @ inputs: {
@@ -31,6 +33,7 @@
       modules = [
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
+        inputs.catppuccin.nixosModules.catppuccin
         ./hosts/desktop/configuration.nix
         ./baseConfiguration.nix
       ];

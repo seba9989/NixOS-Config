@@ -39,6 +39,7 @@
 
         # Keybindings
         bind = [
+          "${config.hyprland.mainMod}, T, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
           "${config.hyprland.mainMod}, Q, exec, ${config.systemApps.terminal}"
           "${config.hyprland.mainMod}, C, killactive"
           "${config.hyprland.mainMod}, M, exit"
