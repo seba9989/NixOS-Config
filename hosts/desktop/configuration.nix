@@ -8,7 +8,7 @@
 
   monitors = [
     {
-      name = "DP-1";
+      name = "DP-2";
       width = 1920;
       height = 1080;
       refreshRate = 165;
@@ -29,8 +29,13 @@
     }
   ];
 
-  programs.steam.enable = true;
-
+  programs = {
+    steam.enable = true;
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+  };
   # Desktop
   hyprland.enable = true;
 

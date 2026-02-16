@@ -17,10 +17,13 @@
 
   programs.zen-browser = {
     enable = true;
+    nativeMessagingHosts = [pkgs.firefoxpwa];
+    suppressXdgMigrationWarning = true;
 
-    profiles = {
-      main = {
-      };
+    profiles."main" = {
+      extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        proton-pass
+      ];
     };
   };
 
@@ -88,6 +91,8 @@
     freecad
 
     distrobox
+    qemu
+    quickemu
   ];
 
   programs.kitty.enable = true;
