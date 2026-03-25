@@ -1,17 +1,10 @@
-{
-  self,
-  inputs,
-  ...
-}: {
-  flake.nixosModules.DesktopConfiguration = {
-    pkgs,
-    lib,
-    ...
-  }: {
+{self, ...}: {
+  flake.nixosModules.DesktopConfiguration = {pkgs, ...}: {
+    networking.hostName = "Desktop";
     # import any other modules from here
     imports = [
       self.nixosModules.DesktopHardware
-      # self.nixosModules.niri
+      self.nixosModules.niri
     ];
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -20,9 +13,8 @@
       isNormalUser = true;
       description = "Seba9989";
       extraGroups = ["networkmanager" "wheel"];
-      packages = with pkgs; [
-        #  thunderbird
-      ];
+
+      shell = pkgs.fish;
     };
 
     nixpkgs.config.allowUnfree = true;
@@ -41,14 +33,23 @@
       flake = "/home/seba9989/.config/NixOS-Config"; # sets NH_OS_FLAKE variable for you
     };
 
+    programs.fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set fish_greeting
+      '';
+    };
+
     # ...
 
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
     # Enable the GNOME Desktop Environment.
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    # services.displayManager.gdm.enable = true;
+    services.displayManager.enable = true;
+    systemd.services.lidm.enable = true;
+    services.desktopManager.gnome.enable = true;
 
     system.stateVersion = "26.05";
   };
