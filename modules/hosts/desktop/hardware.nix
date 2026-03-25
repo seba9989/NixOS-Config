@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.DesktopHardware = {
+  flake.nixosModules.VMHardware = {
     config,
     lib,
     pkgs,

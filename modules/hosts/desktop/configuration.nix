@@ -1,9 +1,9 @@
 {self, ...}: {
-  flake.nixosModules.DesktopConfiguration = {pkgs, ...}: {
-    networking.hostName = "Desktop";
+  flake.nixosModules.VMConfiguration = {pkgs, ...}: {
+    networking.hostName = "VM";
     # import any other modules from here
     imports = [
-      self.nixosModules.DesktopHardware
+      self.nixosModules.VMHardware
       self.nixosModules.niri
     ];
 

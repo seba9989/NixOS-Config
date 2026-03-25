@@ -3,9 +3,9 @@
   inputs,
   ...
 }: {
-  flake.nixosConfigurations.Desktop = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.VM = inputs.nixpkgs.lib.nixosSystem {
     modules = [
-      self.nixosModules.DesktopConfiguration
+      self.nixosModules.VMConfiguration
     ];
   };
 }
