@@ -68,7 +68,6 @@
         input = {
           keyboard = {
             xkb.layout = "pl";
-
             numlock = true;
           };
 
@@ -80,6 +79,11 @@
             mode = "1920x1080@60.000";
             scale = 1.0;
           };
+        };
+
+        cursor = {
+          xcursor-theme = "breeze_cursors";
+          xcursor-size = 16;
         };
 
         binds = let
@@ -110,6 +114,12 @@
             "Mod+G".fullscreen-window = null;
             "Mod+Shift+F".toggle-window-floating = null;
             "Mod+C".center-column = null;
+            "Mod+O" = {
+              _attrs = {
+                repeat = false;
+              };
+              toggle-overview = null;
+            };
 
             # "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
             "Mod+Left".focus-column-left = null;

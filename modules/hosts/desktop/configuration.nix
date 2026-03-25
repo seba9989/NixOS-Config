@@ -25,6 +25,7 @@
       alejandra
       jujutsu
       git
+      gh
     ];
 
     programs.nh = {
