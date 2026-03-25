@@ -1,0 +1,27 @@
+{
+    "nixEnvSelector.nixFile": "${workspaceFolder}/flake.nix",
+    "nixEnvSelector.useFlakes": true,
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nixd",
+    "nix.serverSettings": {
+        "nixd": {
+            "nixpkgs": {
+                "expr": "import (builtins.getFlake (toString ./.)).inputs.nixpkgs { }"
+            },
+            "formatting": {
+                "command": [
+                    "alejandra"
+                ],
+            },
+            "options": {
+                "nixos": {
+                    "expr": "(builtins.getFlake (toString ./.)).nixosConfigurations.Desktop.options"
+                },
+                "flake_parts": {
+                    // "expr": "let flake = builtins.getFlake (toString ./.); in flake.debug.options // flake.currentSystem.options"
+                    "expr": "let flake = builtins.getFlake (toString ./.); in flake.Desktop.options"
+                }
+            }
+        }
+    }
+}
