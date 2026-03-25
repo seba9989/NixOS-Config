@@ -24,6 +24,7 @@
       nixd
       alejandra
       jujutsu
+      git
     ];
 
     programs.nh = {
