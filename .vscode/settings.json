@@ -18,8 +18,7 @@
                     "expr": "(builtins.getFlake (toString ./.)).nixosConfigurations.Desktop.options"
                 },
                 "flake_parts": {
-                    // "expr": "let flake = builtins.getFlake (toString ./.); in flake.debug.options // flake.currentSystem.options"
-                    "expr": "let flake = builtins.getFlake (toString ./.); in flake.Desktop.options"
+                    "expr": "let flake = builtins.getFlake (toString ./.); in flake.debug.options // flake.currentSystem.options"
                 }
             }
         }

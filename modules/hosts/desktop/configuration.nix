@@ -34,6 +34,13 @@
       jujutsu
     ];
 
+    programs.nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/seba9989/.config/NixOS-Config"; # sets NH_OS_FLAKE variable for you
+    };
+
     # ...
 
     # Enable the X11 windowing system.
@@ -42,5 +49,7 @@
     # Enable the GNOME Desktop Environment.
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
+
+    system.stateVersion = "26.05";
   };
 }
