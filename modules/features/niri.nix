@@ -18,11 +18,11 @@
     pkgs,
     lib,
     self',
-    config,
+    inputs',
     ...
   }: {
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
-      inherit pkgs; # THIS PART IS VERY IMPORTAINT, I FORGOT IT IN THE VIDEO!!!
+      inherit pkgs;
 
       settings = let
         noctaliaExe = lib.getExe self'.packages.myNoctalia;
@@ -98,7 +98,7 @@
             mode = "${toString monitor.width}x${toString monitor.height}@${toString monitor.refreshRate}";
             scale = monitor.scale;
           })
-          config.preferences.monitors;
+          inputs'.config;
 
         cursor = {
           xcursor-theme = "breeze_cursors";
