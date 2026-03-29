@@ -18,7 +18,7 @@
     pkgs,
     lib,
     self',
-    inputs',
+    config,
     ...
   }: {
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
@@ -98,7 +98,7 @@
             mode = "${toString monitor.width}x${toString monitor.height}@${toString monitor.refreshRate}";
             scale = monitor.scale;
           })
-          inputs'.config;
+          config.preferences.monitors;
 
         cursor = {
           xcursor-theme = "breeze_cursors";
