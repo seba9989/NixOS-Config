@@ -205,7 +205,7 @@
       "shadowDirection": "bottom_right",
       "shadowOffsetX": 2,
       "shadowOffsetY": 3,
-      "language": "",
+      "language": "pl",
       "allowPanelsOnScreenWithoutBar": true,
       "showChangelogOnStartup": true,
       "telemetryEnabled": false,
@@ -260,7 +260,7 @@
       "settingsPanelSideBarCardStyle": false
     },
     "location": {
-      "name": "Tokyo",
+      "name": "Warsow, Poland",
       "weatherEnabled": true,
       "weatherShowEffects": true,
       "useFahrenheit": false,
@@ -269,7 +269,7 @@
       "showCalendarEvents": true,
       "showCalendarWeather": true,
       "analogClockInCalendar": false,
-      "firstDayOfWeek": -1,
+      "firstDayOfWeek": 1,
       "hideWeatherTimezone": false,
       "hideWeatherCityName": false
     },
@@ -291,7 +291,7 @@
     },
     "wallpaper": {
       "enabled": true,
-      "overviewEnabled": false,
+      "overviewEnabled": true,
       "directory": "/home/seba9989/Pictures/Wallpapers",
       "monitorDirectories": [],
       "enableMultiMonitorDirectories": false,
@@ -483,7 +483,7 @@
     },
     "sessionMenu": {
       "enableCountdown": true,
-      "countdownDuration": 10000,
+      "countdownDuration": 3000,
       "position": "center",
       "showHeader": true,
       "showKeybinds": true,
@@ -623,10 +623,10 @@
       "enableUserTheming": false
     },
     "nightLight": {
-      "enabled": false,
+      "enabled": true,
       "forced": false,
       "autoSchedule": true,
-      "nightTemp": "4000",
+      "nightTemp": "5000",
       "dayTemp": "6500",
       "manualSunrise": "06:30",
       "manualSunset": "18:30"

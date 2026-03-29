@@ -18,6 +18,7 @@
     pkgs,
     lib,
     self',
+    config,
     ...
   }: {
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
@@ -65,6 +66,18 @@
           };
         };
 
+        layer-rule = {
+          match = {
+            _attrs.namespace = "^noctalia-overview*";
+          };
+          place-within-backdrop = true;
+        };
+
+        window-rule = {
+          geometry-corner-radius = 20;
+          clip-to-geometry = true;
+        };
+
         input = {
           keyboard = {
             xkb.layout = "pl";
@@ -74,12 +87,18 @@
           focus-follows-mouse = null;
         };
 
-        outputs = {
-          "Red Hat, Inc. QEMU Monitor Unknown" = {
-            mode = "1920x1080@60.000";
-            scale = 1.0;
-          };
-        };
+        # outputs = {
+        #   "Red Hat, Inc. QEMU Monitor Unknown" = {
+        #     mode = "1920x1080@60.000";
+        #     scale = 1.0;
+        #   };
+        # };
+        outputs =
+          lib.mapAttrs (_name: monitor: {
+            mode = "${toString monitor.width}x${toString monitor.height}@${toString monitor.refreshRate}";
+            scale = monitor.scale;
+          })
+          config.preferences.monitors;
 
         cursor = {
           xcursor-theme = "breeze_cursors";
@@ -168,6 +187,10 @@
               value = {layout.gaps = 5;};
             })
             keys);
+
+        debug = {
+          honor-xdg-activation-with-invalid-serial = null;
+        };
       };
     };
   };

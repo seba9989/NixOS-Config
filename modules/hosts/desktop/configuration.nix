@@ -4,8 +4,25 @@
     # import any other modules from here
     imports = [
       self.nixosModules.DesktopHardware
+      self.nixosModules.base
       self.nixosModules.niri
     ];
+
+    preferences.monitors = {
+      "DP-2" = {
+        primary = true;
+        width = 1920;
+        height = 1080;
+        refreshRate = 165;
+        x = 0;
+        y = 0;
+
+        VRR = {
+          enable = true;
+          onDemand = false;
+        };
+      };
+    };
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
 
