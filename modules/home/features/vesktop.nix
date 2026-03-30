@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.vesktop = {pkgs, ...}: {
+  flake.homeModules.vesktop = {...}: {
     programs.vesktop = {
       enable = true;
     };

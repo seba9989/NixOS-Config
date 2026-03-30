@@ -15,7 +15,7 @@
             },
             "options": {
                 "nixos": {
-                    "expr": "(builtins.getFlake (toString ./.)).nixosConfigurations.Desktop.options"
+                    "expr": "(builtins.getFlake (toString ./.)).nixosConfigurations.${builtins.getEnv \"HOSTNAME\"}.options"
                 },
                 "flake_parts": {
                     "expr": "let flake = builtins.getFlake (toString ./.); in flake.debug.options // flake.currentSystem.options"
