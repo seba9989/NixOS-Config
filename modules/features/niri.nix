@@ -85,6 +85,28 @@
           };
 
           focus-follows-mouse = null;
+
+          touchpad = {
+            # off
+            tap = null;
+            # dwt
+            # dwtp
+            # drag false
+            # drag-lock
+            # natural-scroll = null;
+            # accel-speed 0.2
+            # accel-profile "flat"
+            # scroll-factor 1.0
+            # scroll-factor vertical=1.0 horizontal=-2.0
+            # scroll-method "two-finger"
+            # scroll-button 273
+            # scroll-button-lock
+            # tap-button-map "left-middle-right"
+            # click-method "clickfinger"
+            # left-handed
+            # disabled-on-external-mouse
+            # middle-emulation
+          };
         };
 
         # outputs = {
