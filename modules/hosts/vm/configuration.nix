@@ -2,7 +2,6 @@
   flake.nixosModules.VMConfiguration = {pkgs, ...}: {
     networking.hostName = "VM";
     imports = [
-      self.nixosModules.LaptopHardware
       self.nixosModules.base
       self.nixosModules.niri
       self.nixosModules.seba9989

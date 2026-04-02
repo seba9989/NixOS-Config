@@ -13,7 +13,7 @@
     imports = [
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
-    
+
     boot = {
       initrd = {
         availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
@@ -21,7 +21,10 @@
       };
       loader = {
         systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
+        efi = {
+          canTouchEfiVariables = true;
+          efiSysMountPoint = "/boot";
+        };
       };
       kernelModules = ["kvm-amd"];
       extraModulePackages = [];
