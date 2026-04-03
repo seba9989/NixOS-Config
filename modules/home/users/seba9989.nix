@@ -6,7 +6,6 @@
   flake = {
     homeConfigurations.seba9989 = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
-
       modules = [
         self.homeModules.vesktop
         self.homeModules.zen
@@ -16,6 +15,8 @@
           home.username = "seba9989";
           home.homeDirectory = "/home/seba9989";
           home.stateVersion = "26.05";
+
+          programs.home-manager.enable = true;
         }
       ];
     };
@@ -37,9 +38,6 @@
       programs.fish.enable = true;
 
       programs.steam.enable = true;
-      environment.systemPackages = with pkgs; [
-        adwsteamgtk
-      ];
 
       time.timeZone = "Europe/Warsaw";
     };

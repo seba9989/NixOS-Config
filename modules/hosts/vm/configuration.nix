@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.nixosModules.VMConfiguration = {pkgs, ...}: {
+  flake.nixosModules.VMConfiguration = {...}: {
     networking.hostName = "VM";
     imports = [
       self.nixosModules.base

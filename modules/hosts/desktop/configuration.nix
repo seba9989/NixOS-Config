@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.nixosModules.DesktopConfiguration = {pkgs, ...}: {
+  flake.nixosModules.DesktopConfiguration = {...}: {
     networking.hostName = "Desktop";
     imports = [
       self.nixosModules.base
