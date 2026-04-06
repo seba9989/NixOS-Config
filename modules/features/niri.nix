@@ -122,6 +122,7 @@
         // {
           "Mod+Return".spawn = lib.getExe pkgs.kitty;
           "Mod+S".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
+          "Mod+P".spawn-sh = "${noctaliaExe} ipc call sessionMenu toggle";
           "Mod+V".spawn-sh = "${pkgs.alsa-utils}/bin/amixer sset Capture toggle";
 
           "Mod+Q".close-window = _: {};
