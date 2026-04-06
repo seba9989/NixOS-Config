@@ -70,8 +70,8 @@
         config.preferences.monitors;
 
       cursor = {
-        xcursor-theme = "breeze_cursors";
-        xcursor-size = 16;
+        xcursor-theme = "Banana-Catppuccin-Mocha";
+        xcursor-size = 42;
       };
 
       input = {
