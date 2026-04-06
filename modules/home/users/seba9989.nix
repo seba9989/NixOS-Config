@@ -55,8 +55,6 @@
 
       programs.fish.enable = true;
 
-      programs.steam.enable = true;
-
       time.timeZone = "Europe/Warsaw";
     };
   };
