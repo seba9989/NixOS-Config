@@ -5,6 +5,8 @@
       self.nixosModules.base
       self.nixosModules.niri
       self.nixosModules.seba9989
+
+      self.nixosModules.podman
     ];
 
     preferences.monitors = {
