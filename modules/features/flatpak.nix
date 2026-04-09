@@ -12,11 +12,11 @@
     services.flatpak = {
       enable = true;
 
-      overrides = {
-        global = {
-          Context.filesystems = ["/nix/store:ro"];
-        };
-      };
+      # overrides = {
+      #   global = {
+      #     Context.filesystems = ["/nix/store:ro"];
+      #   };
+      # };
     };
   };
 }

@@ -609,7 +609,7 @@
           templates = {
             activeTemplates = [
               {
-                enabled = true;
+                enabled = false;
                 id = "gtk";
               }
               {

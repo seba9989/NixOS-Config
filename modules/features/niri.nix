@@ -159,13 +159,17 @@
 
           "Mod+Ctrl+S".spawn-sh = "${lib.getExe pkgs.grim} -l 0 - | ${pkgs.wl-clipboard}/bin/wl-copy";
           "Mod+Shift+E".spawn-sh = "${pkgs.wl-clipboard}/bin/wl-paste | ${lib.getExe pkgs.swappy} -f -";
-          "Mod+Shift+S".spawn-sh = lib.getExe (pkgs.writeShellApplication {
-            name = "screenshot";
-            text = ''
-              ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -w 0)" - \
-              | ${pkgs.wl-clipboard}/bin/wl-copy
-            '';
-          });
+          # "Mod+Print".spawn-sh = lib.getExe (pkgs.writeShellApplication {
+          #   name = "screenshot";
+          #   text = ''
+          #     ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -w 0)" - \
+          #     | ${pkgs.wl-clipboard}/bin/wl-copy
+          #   '';
+          # });
+
+          "Print".screenshot = _: {};
+          "Mod+Print".screenshot-window = _: {};
+          "Ctrl+Shift+Print".screenshot-screen = _: {};
         };
 
       debug.honor-xdg-activation-with-invalid-serial = _: {};
