@@ -1,0 +1,52 @@
+{
+  "terminal": {
+    "font_size": 14.0,
+    "font_family": "JetBrainsMono NF",
+  },
+
+  "base_keymap": "VSCode",
+  "cursor_blink": true,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+
+  "buffer_font_family": "JetBrainsMono NF",
+  "colorize_brackets": true,
+  "auto_indent_on_paste": true,
+  "linked_edits": true,
+  "use_on_type_format": false,
+  "soft_wrap": "none",
+
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
+  "ui_font_size": 14.0,
+  "buffer_font_size": 16.0,
+  "theme": {
+    "mode": "dark",
+    "light": "Catppuccin Macchiato",
+    "dark": "Catppuccin Macchiato",
+  },
+  "ui_font_family": "JetBrainsMono NF",
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "material-icon-theme": true,
+  },
+
+  "profiles": {
+    "nix": {
+      "auto_install_extensions": {
+        "nix": true,
+      },
+    },
+    "svelte": {
+      "auto_install_extensions": {
+        "svelte": true,
+      },
+    },
+  },
+}
