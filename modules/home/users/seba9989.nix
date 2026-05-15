@@ -36,6 +36,7 @@
               self.homeModules.fish
               self.homeModules.cursor
               self.homeModules.DevelopmentDefault
+              self.homeModules.freecad
             ];
 
             home.stateVersion = "26.05";

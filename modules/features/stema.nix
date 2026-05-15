@@ -1,5 +1,5 @@
 {...}: {
-  flake.nixosModules.niri = {
+  flake.nixosModules.steam = {
     pkgs,
     lib,
     config,
