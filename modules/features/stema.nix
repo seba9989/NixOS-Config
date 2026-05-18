@@ -11,6 +11,14 @@
       dedicatedServer.openFirewall = true; # Open ports in the firewall for steam server
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
       gamescopeSession.enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
+
+    programs.gamescope = {
+      enable = true;
+      capSysNice = false;
     };
   };
 }

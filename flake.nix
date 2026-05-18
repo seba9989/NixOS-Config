@@ -23,6 +23,8 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    affinity-nix.url = "github:mrshmllow/affinity-nix";
   };
 
   outputs = inputs:

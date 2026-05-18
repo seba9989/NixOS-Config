@@ -1,5 +1,6 @@
 {...}: {
   flake.homeModules.cursor = {pkgs, ...}: {
+    # home.pointerCursor.enable = true;
     home.pointerCursor = let
       getFrom = url: hash: name: {
         name = name;

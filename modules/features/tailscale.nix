@@ -1,5 +1,11 @@
-{ ...}: {
-  flake.nixosModules.tailscale = {pkgs, config, ...}: {
+{...}: {
+  flake.nixosModules.tailscale = {
+    pkgs,
+    config,
+    ...
+  }: {
+    networking.nameservers = ["1.1.1.2" "1.0.0.2"];
+
     # 1. Enable the service and the firewall
     services.tailscale.enable = true;
     networking.nftables.enable = true;
