@@ -11,6 +11,7 @@
       self.nixosModules.tailscale
       self.nixosModules.HomeLabHPUser
       self.nixosModules.HomeLabHPContainers
+      self.nixosModules.HomeLabHPContainersKxBridge
       inputs.quadlet-nix.nixosModules.quadlet
     ];
 
