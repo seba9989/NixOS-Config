@@ -21,9 +21,12 @@
       };
       loader = {
         systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
+        efi = {
+          canTouchEfiVariables = true;
+          efiSysMountPoint = "/boot";
+        };
       };
-      kernelModules = ["kvm-amd"];
+      kernelModules = ["kvm-amd" "amdgpu"];
       extraModulePackages = [];
     };
 

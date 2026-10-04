@@ -2,11 +2,7 @@
   flake.nixosModules.LaptopConfiguration = {...}: {
     networking.hostName = "Laptop";
     imports = [
-      self.nixosModules.base
-      self.nixosModules.niri
-      self.nixosModules.seba9989
-      
-      self.nixosModules.podman
+      self.nixosModules.workstation
     ];
 
     preferences.monitors = {

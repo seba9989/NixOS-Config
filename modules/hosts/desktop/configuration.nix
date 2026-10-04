@@ -2,16 +2,10 @@
   flake.nixosModules.DesktopConfiguration = {...}: {
     networking.hostName = "Desktop";
     imports = [
-      self.nixosModules.base
-      self.nixosModules.niri
-      self.nixosModules.seba9989
+      self.nixosModules.workstation
 
-      self.nixosModules.steam
-      self.nixosModules.podman
-      self.nixosModules.flatpak
       self.nixosModules.VM
       self.nixosModules.ollama
-      self.nixosModules.tailscale
     ];
 
     preferences.monitors = {
