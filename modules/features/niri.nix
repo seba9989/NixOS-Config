@@ -123,6 +123,7 @@
           "Mod+Return".spawn = lib.getExe pkgs.kitty;
           "Mod+S".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
           "Mod+P".spawn-sh = "${noctaliaExe} ipc call sessionMenu toggle";
+          "Mod+Shift+P".power-off-monitors = _: {};
           "Mod+V".spawn-sh = "${pkgs.alsa-utils}/bin/amixer sset Capture toggle";
 
           "Mod+Q".close-window = _: {};
@@ -177,6 +178,14 @@
   in {
     services.desktopManager.gnome.enable = true;
     services.displayManager.ly.enable = true;
+
+    environment.systemPackages = [
+      (pkgs.writeShellScriptBin "monitors-off" ''
+        # opóźnienie, żeby puszczenie Entera nie obudziło monitorów od razu
+        sleep 0.5
+        ${lib.getExe config.programs.niri.package} msg action power-off-monitors
+      '')
+    ];
 
     programs.niri = let
       pkg = inputs.wrapper-modules.wrappers.niri.wrap {
