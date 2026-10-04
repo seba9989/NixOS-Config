@@ -6,6 +6,7 @@
 
       self.nixosModules.VM
       self.nixosModules.ollama
+      self.nixosModules.openrgb
     ];
 
     preferences.monitors = {
