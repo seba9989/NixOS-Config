@@ -10,10 +10,6 @@
         inputs.catppuccin.nixosModules.catppuccin
       ];
 
-      nixpkgs.overlays = [inputs.affinity-nix.overlays.default];
-
-      environment.systemPackages = [pkgs.affinity-v3];
-
       catppuccin.enable = true;
 
       users.users.seba9989 = {

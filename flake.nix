@@ -24,8 +24,6 @@
       };
     };
 
-    affinity-nix.url = "github:mrshmllow/affinity-nix";
-
     quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
   };
 

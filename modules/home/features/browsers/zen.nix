@@ -7,6 +7,7 @@
 
     stylix = {
       enable = true;
+      polarity = "dark"; # ← brakowało
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
       targets.zen-browser.enable = true;
@@ -18,6 +19,16 @@
     programs.zen-browser = {
       enable = true;
       setAsDefaultBrowser = true;
+
+      # ← profil "main" musi faktycznie istnieć i być domyślny
+      profiles.main = {
+        id = 0;
+        isDefault = true;
+        settings = {
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "layout.css.prefers-color-scheme.content-override" = 0;
+        };
+      };
     };
   };
 }
