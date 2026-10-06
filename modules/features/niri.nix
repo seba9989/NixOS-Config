@@ -12,6 +12,26 @@
     self' = self.packages.${pkgs.stdenv.hostPlatform.system};
     noctaliaExe = lib.getExe self'.myNoctalia;
 
+    # noctalia-shell's wallpaper layer sometimes fails to load an image at startup
+    # (Image.Error is only logged, never retried - the background window then stays
+    # invisible for the whole session). Force one extra wallpaper pick per monitor a
+    # few seconds after launch, once startup contention has settled, to self-heal that.
+    noctaliaStartup = pkgs.writeShellApplication {
+      name = "noctalia-startup";
+      text = ''
+        "${noctaliaExe}" &
+        pid=$!
+        (
+          sleep 8
+          screens=(${lib.concatStringsSep " " (builtins.attrNames config.preferences.monitors)})
+          for screen in "''${screens[@]}"; do
+            "${noctaliaExe}" ipc call wallpaper random "$screen"
+          done
+        ) &
+        wait "$pid"
+      '';
+    };
+
     keys = [0 1 2 3 4 5 6 7 8 9];
     toWorkspace = key:
       if key == 0
@@ -33,7 +53,7 @@
         keys);
 
     niriSettings = {
-      spawn-at-startup = [noctaliaExe];
+      spawn-at-startup = [(lib.getExe noctaliaStartup)];
 
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
       prefer-no-csd = _: {};
