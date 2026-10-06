@@ -57,6 +57,7 @@
 
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
       prefer-no-csd = _: {};
+      hotkey-overlay.skip-at-startup = _: {};
 
       outputs =
         builtins.trace "monitors = ${builtins.toJSON config.preferences.monitors}"
